@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load material_form %}
+
+    <div class="content-section">
+    <div class="mdl-grid site-copy">
+        <div class="mdl-cell mdl-cell--12-col">
+            <form method="POST">
+            {% csrf_token %}
+            {% form %}
+                {% part form.username prefix %}{% endpart %}
+                {% part form.email prefix %}{% endpart %}
+                {% part form.password1 prefix %}{% endpart %}
+                {% part form.password2 prefix %}{% endpart %}
+            
+            {% endform %}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <br>
+        <div class="border-top pt-3 text-muted ml-2">
+            <p class="text-muted">
+                Already Have An Account? <br> <a class="ml-2 btn btn-outline-info" href="{% url 'login' %}">Sign In</a>
+            </p>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock content %}

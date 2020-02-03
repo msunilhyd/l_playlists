@@ -1,0 +1,56 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load material_form %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <!-- {% for post in posts %}
+        <div class="site-content">
+          <div class="container">
+            <div class="mdl-grid site-max-width"></div>
+        <section class="section--center mdl-grid site-max-width">
+              <iframe width="420" height="345" src={{ post.vid_url }}>
+              </iframe>
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+          </section>
+      </div>
+
+    </div>
+
+  </div>
+  {% endfor %} -->
+
+
+
+    <div class="content-section">
+        <div class="mdl-grid site-copy">
+    
+        <div class="mdl-cell mdl-cell--12-col">
+
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Profile Info</legend>
+              {{ u_form|crispy  }}
+              {{ p_form|crispy  }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+          </div>
+      </form>
+    </div>
+        </div>
+
+    </div>
+    {% endif %}
+
+
+{% endblock content %}

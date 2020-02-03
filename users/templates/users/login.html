@@ -1,0 +1,112 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load material_form %}
+{% load static %}
+
+
+
+
+{% block content %}
+
+    <div class="mdl-grid site-copy">
+    
+        <div class="mdl-cell mdl-cell--12-col">
+        <form method="POST">
+            {% csrf_token %}
+            {% form %}
+                {% part form.username prefix %}<i class="mdl-textfield__input"></i>{% endpart %}
+                {% part form.password prefix %}<i class="mdl-textfield__input"></i>{% endpart %}
+            {% endform %}
+                <button type="submit" class="btn">Submit</button>
+                <p class="text-muted ml-2">
+                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                </p>
+                       <div class="border-top pt-3">
+            <p class="text-muted ml-2">
+                Need An Account?                         <br>
+                  <a class="ml-8 btn btn-outline-info" href="{% url 'register' %}">Sign Up Now</a>
+            </p>
+        </div>
+        </form>
+    </div>
+    </div>
+<!-- 
+     <div class="site-content">
+                        <div class="container">
+                          <div class="mdl-grid site-max-width"></div>
+                          <section class="section--center mdl-grid site-max-width">
+                            
+                            <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--9-col-tablet mdl-cell--6-col-phone  mdl-shadow--4dp">
+                              <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Introduction</h2>
+                              </div>
+                              <iframe width="420" height="345" src="https://www.youtube.com/embed/1UIhKZCPMYM">
+</iframe>
+                              <div class="mdl-card__supporting-text">
+      Dramatically maintain clicks-and-mortar solutions without functional solutions.
+      Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+    </div>
+                            </div>
+                          </section>
+                          <section class="section--center mdl-grid site-max-width">
+                            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                              <div class="mdl-card__media">
+                                <img class="article-image" src="{% static "img/portfolio1.jpg" %}" border="0" alt="">
+                                </div>
+                                <div class="mdl-card__title">
+                                  <h2 class="mdl-card__title-text">Badminton</h2>
+                                </div>
+                                <div class="mdl-card__supporting-text"></div>
+                              </div>
+                              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                                <div class="mdl-card__media">                                  
+                                  <img class="article-image" src="{% static "img/portfolio2.jpg" %}" border="0" alt="">
+                                  </div>
+                                  <div class="mdl-card__title">
+                                    <h2 class="mdl-card__title-text">Table Tennis</h2>
+                                  </div>
+                                  <div class="mdl-card__supporting-text"></div>
+                                </div>
+                                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                                  <div class="mdl-card__media">
+                                    <img class="article-image" src="{% static "img/portfolio3.jpg" %}" border="0" alt="">
+                                    </div>
+                                    <div class="mdl-card__title">
+                                      <h2 class="mdl-card__title-text">Football</h2>
+                                    </div>
+                                    <div class="mdl-card__supporting-text"></div>
+                                  </div>
+                                  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                              <div class="mdl-card__media">
+                                <img class="article-image" src="{% static "img/birthday.jpeg" %}" border="0" alt="">
+                                </div>
+                                <div class="mdl-card__title">
+                                  <h2 class="mdl-card__title-text">Badminton</h2>
+                                </div>
+                                <div class="mdl-card__supporting-text"></div>
+                              </div>
+                              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                              <div class="mdl-card__media">
+                                <img class="article-image" src="{% static "img/portfolio1.jpg" %}" border="0" alt="">
+                                </div>
+                                <div class="mdl-card__title">
+                                  <h2 class="mdl-card__title-text">Badminton</h2>
+                                </div>
+                                <div class="mdl-card__supporting-text"></div>
+                              </div>
+                              <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                              <div class="mdl-card__media">
+                                <img class="article-image" src="{% static "img/portfolio1.jpg" %}" border="0" alt="">
+                                </div>
+                                <div class="mdl-card__title">
+                                  <h2 class="mdl-card__title-text">Badminton</h2>
+                                </div>
+                                <div class="mdl-card__supporting-text"></div>
+                              </div>
+                              
+                                </section>
+                                <div class="homepage-footer"></div>
+                              </div>
+                            </div> -->
+
+{% endblock content %}
